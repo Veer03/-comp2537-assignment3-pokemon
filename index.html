@@ -2,41 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Pokemon Memory Game</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- import jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="index.js"></script>
   </head>
-
   <body>
-    <div id="game_grid">
-      <div class="card">
-        <img id="img1" class="front_face" src="001.png" alt="" />
-        <img class="back_face" src="back.webp" alt="" />
-      </div>
-      <div class="card">
-        <img id="img2" class="front_face" src="002.png" alt="" />
-        <img class="back_face" src="back.webp" alt="" />
-      </div>
-      <div class="card">
-        <img id="img3" class="front_face" src="003.png" alt="" />
-        <img class="back_face" src="back.webp" alt="" />
-      </div>
-      <div class="card">
-        <img id="img4" class="front_face" src="001.png" alt="" />
-        <img class="back_face" src="back.webp" alt="" />
-      </div>
-      <div class="card">
-        <img id="img5" class="front_face" src="002.png" alt="" />
-        <img class="back_face" src="back.webp" alt="" />
-      </div>
-      <div class="card">
-        <img id="img6" class="front_face" src="003.png" alt="" />
-        <img class="back_face" src="back.webp" alt="" />
-      </div>
+    <h1>Pokemon Memory Game</h1>
+
+    <div id="controls">
+      <select id="difficulty">
+        <option value="easy">Easy (3 pairs, 60s)</option>
+        <option value="medium">Medium (6 pairs, 45s)</option>
+        <option value="hard">Hard (9 pairs, 30s)</option>
+      </select>
+      <button id="start">Start</button>
+      <button id="reset">Reset</button>
+      <button id="peek">Power Up (Peek)</button>
+      <button id="theme-toggle">Dark Mode</button>
     </div>
+
+    <div id="status">
+      <span>Time: <b id="time">0</b>s</span>
+      <span>Clicks: <b id="clicks">0</b></span>
+      <span>Matched: <b id="matched">0</b></span>
+      <span>Pairs Left: <b id="pairs-left">0</b></span>
+      <span>Total Pairs: <b id="total">0</b></span>
+    </div>
+
+    <div id="message"></div>
+    <div id="game_grid"></div>
   </body>
 </html>

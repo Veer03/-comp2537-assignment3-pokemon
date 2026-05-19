@@ -1,38 +1,122 @@
 body {
-  margin: 0px;
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  color: #333;
+  transition:
+    background 0.3s,
+    color 0.3s;
 }
 
-#game_grid {
-  border: 2px tomato solid;
-  width: 600px;
-  height: 400px;
-  margin: auto;
+body.dark {
+  background: #1a1a2e;
+  color: #eee;
+}
+
+h1 {
+  text-align: center;
+  color: #e63946;
+}
+
+#controls {
   display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
   flex-wrap: wrap;
 }
 
-.card {
-  width: 33.3%;
-  position: relative;
-  transition: transform 1s;
-  perspective: 1000px;
-  transform-style: preserve-3d;
+#controls button,
+#controls select {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-img {
-  width: 100%;
+#controls button {
+  background: #e63946;
+  color: white;
+}
+
+#controls button:hover {
+  background: #c1121f;
+}
+
+#controls select {
+  background: white;
+  color: #333;
+}
+
+#status {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  flex-wrap: wrap;
+}
+
+#message {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px 0;
+  display: none;
+}
+
+#game_grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.card {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
 }
 
 .front_face,
 .back_face {
   position: absolute;
+  width: 100%;
+  height: 100%;
   backface-visibility: hidden;
-}
-
-.flip {
-  transform: rotateY(180deg);
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  background: white;
+  object-fit: contain;
 }
 
 .front_face {
   transform: rotateY(180deg);
+}
+
+.back_face {
+  object-fit: cover;
+}
+
+.card.matched .front_face {
+  border: 3px solid #2dc653;
+}
+
+body.dark .front_face,
+body.dark .back_face {
+  background: #16213e;
+  border-color: #444;
 }
